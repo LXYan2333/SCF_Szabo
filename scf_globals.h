@@ -32,10 +32,10 @@ typedef enum
   PRINT_ALL                 //Print everything.
 } PRINT_LEVELS;
 
-PRINT_LEVELS print_level;
+extern PRINT_LEVELS print_level;
 
 //Select the n in STO-nG basis set
-UINT32 sto_ng; 
+extern UINT32 sto_ng; 
  
 //Matrix Identifiers
 //We use this for printing so we know what text to add to the
@@ -64,7 +64,7 @@ typedef enum
 
 #define MAX_STR 132
 
-char mat_id_2_str[LAST_MAT_ID+1][MAX_STR]; 
+extern char mat_id_2_str[LAST_MAT_ID+1][MAX_STR]; 
 
 //Only supporting up to STO-3G at the moment
 #define MAX_STO 3
@@ -75,26 +75,26 @@ char mat_id_2_str[LAST_MAT_ID+1][MAX_STR];
 //Define the maximum supported number of electrons
 #define MAX_ELEC 2
 
-double bond_len; //bond length
-double bond_len_sq; //bond length squared
-double zetaA; //slater orbital exponent for atom A
-double zetaB; //slater orbital exponent for atom B
-double za; //nuclear charge of atom A
-double zb; //nuclear charge of atom B
-double elec_energy; //calculated electronic energy
-double total_energy; //calculated electronic energy + nuclear energy contribution
+extern double bond_len; //bond length
+extern double bond_len_sq; //bond length squared
+extern double zetaA; //slater orbital exponent for atom A
+extern double zetaB; //slater orbital exponent for atom B
+extern double za; //nuclear charge of atom A
+extern double zb; //nuclear charge of atom B
+extern double elec_energy; //calculated electronic energy
+extern double total_energy; //calculated electronic energy + nuclear energy contribution
 
 //Store the integrals
-double S12, T11, T12, T22, V11_nucA, V12_nucA, V22_nucA, V11_nucB, V12_nucB, V22_nucB;
-double V1111, V2111, V2121, V2211, V2221, V2222;
+extern double S12, T11, T12, T22, V11_nucA, V12_nucA, V22_nucA, V11_nucB, V12_nucB, V22_nucB;
+extern double V1111, V2111, V2121, V2211, V2221, V2222;
 
 //Global matrices
-double s_mat[MAX_ELEC][MAX_ELEC], x_mat[MAX_ELEC][MAX_ELEC], xt_mat[MAX_ELEC][MAX_ELEC]; 
-double h_mat[MAX_ELEC][MAX_ELEC], f_mat[MAX_ELEC][MAX_ELEC], g_mat[MAX_ELEC][MAX_ELEC];
-double c_mat[MAX_ELEC][MAX_ELEC], fprime_mat[MAX_ELEC][MAX_ELEC], cprime_mat[MAX_ELEC][MAX_ELEC];
-double dens_mat[MAX_ELEC][MAX_ELEC], olddens_mat[MAX_ELEC][MAX_ELEC], energy_mat[MAX_ELEC][MAX_ELEC];
-double mulliken_mat[MAX_ELEC][MAX_ELEC], temp_2d_mat[MAX_ELEC][MAX_ELEC];
-double tt_mat[MAX_ELEC][MAX_ELEC][MAX_ELEC][MAX_ELEC];
+extern double s_mat[MAX_ELEC][MAX_ELEC], x_mat[MAX_ELEC][MAX_ELEC], xt_mat[MAX_ELEC][MAX_ELEC]; 
+extern double h_mat[MAX_ELEC][MAX_ELEC], f_mat[MAX_ELEC][MAX_ELEC], g_mat[MAX_ELEC][MAX_ELEC];
+extern double c_mat[MAX_ELEC][MAX_ELEC], fprime_mat[MAX_ELEC][MAX_ELEC], cprime_mat[MAX_ELEC][MAX_ELEC];
+extern double dens_mat[MAX_ELEC][MAX_ELEC], olddens_mat[MAX_ELEC][MAX_ELEC], energy_mat[MAX_ELEC][MAX_ELEC];
+extern double mulliken_mat[MAX_ELEC][MAX_ELEC], temp_2d_mat[MAX_ELEC][MAX_ELEC];
+extern double tt_mat[MAX_ELEC][MAX_ELEC][MAX_ELEC][MAX_ELEC];
 
 //function declarations
 void calc_integrals(void);

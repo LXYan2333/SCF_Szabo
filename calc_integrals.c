@@ -21,6 +21,21 @@
 #include "math.h"
 #include "scf_globals.h"
 
+double elec_energy; //calculated electronic energy
+double total_energy; //calculated electronic energy + nuclear energy contribution
+
+//Store the integrals
+double S12, T11, T12, T22, V11_nucA, V12_nucA, V22_nucA, V11_nucB, V12_nucB, V22_nucB;
+double V1111, V2111, V2121, V2211, V2221, V2222;
+
+//Global matrices
+double s_mat[MAX_ELEC][MAX_ELEC], x_mat[MAX_ELEC][MAX_ELEC], xt_mat[MAX_ELEC][MAX_ELEC]; 
+double h_mat[MAX_ELEC][MAX_ELEC], f_mat[MAX_ELEC][MAX_ELEC], g_mat[MAX_ELEC][MAX_ELEC];
+double c_mat[MAX_ELEC][MAX_ELEC], fprime_mat[MAX_ELEC][MAX_ELEC], cprime_mat[MAX_ELEC][MAX_ELEC];
+double dens_mat[MAX_ELEC][MAX_ELEC], olddens_mat[MAX_ELEC][MAX_ELEC], energy_mat[MAX_ELEC][MAX_ELEC];
+double mulliken_mat[MAX_ELEC][MAX_ELEC], temp_2d_mat[MAX_ELEC][MAX_ELEC];
+double tt_mat[MAX_ELEC][MAX_ELEC][MAX_ELEC][MAX_ELEC];
+
 //This function is where the exponents of the Gaussians primitives are scaled
 //and the contraction coefficients are setup to approximate a 1s Slater orbital.
 void prepare_basis_fns(void);
